@@ -17,6 +17,8 @@ class Farkle:
             turn_score += 200
         if array_of_dice.count(3) == 3:
             turn_score += 300
+        if array_of_dice.count(4) == 3:
+            turn_score += 400
         return turn_score
 
     def __score_single_dice(self, dice, turn_score):
