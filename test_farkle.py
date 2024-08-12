@@ -15,3 +15,11 @@ def test_dice_combination2():
     farkle = Farkle()
     current_score = farkle.score(items)
     assert current_score == 1200
+
+
+# Test for Three 4s, a 6, a 1, a 5
+def test_dice_combination3():
+    items = [4, 4, 4, 6, 1, 5]
+    farkle = Farkle()
+    current_score = farkle.score(items)
+    assert current_score == 550
