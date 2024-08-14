@@ -2,21 +2,15 @@ class Farkle:
 
     def score(self, array_of_dice):
         turn_score = 0
-        # check for triple dices
+        # check for triple dice
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
-        # if no triple dice check single dice
-        if array_of_dice.count(1) == 3:
-            new_dice_array = self.__remove_dice(1, array_of_dice)
-            for dice in new_dice_array:
-                turn_score = self.__score_single_dice(dice, turn_score)
-        if array_of_dice.count(4) == 3:
-            new_dice_array = self.__remove_dice(4, array_of_dice)
-            for dice in new_dice_array:
-                turn_score = self.__score_single_dice(dice, turn_score)
-        if array_of_dice.count(3) == 3:
-            new_dice_array = self.__remove_dice(3, array_of_dice)
-            for dice in new_dice_array:
-                turn_score = self.__score_single_dice(dice, turn_score)
+        # remove triple dice and score single dice
+        triple_dice_to_check = [1, 2, 3, 4, 5, 6]
+        for dice_value in triple_dice_to_check:
+            if array_of_dice.count(dice_value) == 3:
+                array_of_dice = self.__remove_dice(dice_value, array_of_dice)
+        for dice in array_of_dice:
+            turn_score = self.__score_single_dice(dice, turn_score)
         return turn_score
 
     def __score_triple_dice(self, array_of_dice, turn_score):
