@@ -2,7 +2,6 @@ class Farkle:
 
     def score(self, array_of_dice):
         turn_score = 0
-        # check for triple dice
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
         for dice in array_of_dice:
@@ -13,6 +12,7 @@ class Farkle:
         triple_dice_to_check = [1, 2, 3, 4, 5, 6]
         for dice_value in triple_dice_to_check:
             if array_of_dice.count(dice_value) == 3:
+                # create a new list containing only those elements x that satisfy the condition x != dice_value.
                 array_of_dice = [x for x in array_of_dice if x != dice_value]
         return array_of_dice
 
