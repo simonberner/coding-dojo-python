@@ -1,7 +1,7 @@
 class Farkle:
 
     def score(self, array_of_dice):
-        turn_score = 0
+        turn_score = self._score_four_of_a_kind(array_of_dice)
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
         for dice in array_of_dice:
@@ -37,3 +37,9 @@ class Farkle:
         if dice == 5:
             turn_score += 50
         return turn_score
+
+    def _score_four_of_a_kind(self, array_of_dice):
+        score = 0
+        if array_of_dice.count(3) == 4:
+            score = 600
+        return score
