@@ -31,3 +31,11 @@ def test_dice_combination4():
     farkle = Farkle()
     current_score = farkle.score(items)
     assert current_score == 1100
+
+
+# Test Four-of-a-kind (triple score is multiplied  by 2)
+def test_four_threes():
+    dice = [3, 3, 3, 3, 1, 5]
+    farkle = Farkle()
+    score = farkle.score(dice)
+    assert score == 750
