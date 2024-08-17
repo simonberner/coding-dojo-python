@@ -18,9 +18,10 @@ This is my place for practicing coding in Python. Your are free to clone it and 
 
 ## Katas
 
-### [Farkle (Greed)](https://codingdojo.org/kata/Greed/)
+### Farkle Greed
 
-- [Farkle Wiki](https://en.wikipedia.org/wiki/Farkle#)
+- [The Kata](https://codingdojo.org/kata/Greed/)
+- [More Information (Wiki)](https://en.wikipedia.org/wiki/Farkle#)
 
 ## Approach
 
