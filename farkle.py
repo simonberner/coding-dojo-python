@@ -43,20 +43,11 @@ class Farkle:
         return turn_score
 
     def _score_four_of_a_kind(self, array_of_dice):
-        score = 0
-        if array_of_dice.count(1) == 4:
-            score = 2000
-        if array_of_dice.count(2) == 4:
-            score = 400
-        if array_of_dice.count(3) == 4:
-            score = 600
-        if array_of_dice.count(4) == 4:
-            score = 800
-        if array_of_dice.count(5) == 4:
-            score = 1000
-        if array_of_dice.count(6) == 4:
-            score = 1200
-        return score
+        score_map = {1: 2000, 2: 400, 3: 600, 4: 800, 5: 1000, 6: 1200}
+        for value, score in score_map.items():
+            if array_of_dice.count(value) == 4:
+                return score
+        return 0
 
     def __remove_fourofakind_dice(self, array_of_dice):
         four_of_a_kind_to_check = [1, 2, 3, 4, 5, 6]
