@@ -46,8 +46,16 @@ class Farkle:
         score = 0
         if array_of_dice.count(1) == 4:
             score = 2000
+        if array_of_dice.count(2) == 4:
+            score = 400
         if array_of_dice.count(3) == 4:
             score = 600
+        if array_of_dice.count(4) == 4:
+            score = 800
+        if array_of_dice.count(5) == 4:
+            score = 1000
+        if array_of_dice.count(6) == 4:
+            score = 1200
         return score
 
     def __remove_fourofakind_dice(self, array_of_dice):
