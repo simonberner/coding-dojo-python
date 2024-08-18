@@ -1,10 +1,7 @@
-from multiprocessing.connection import arbitrary_address
-
-
 class Farkle:
 
     def score(self, array_of_dice):
-        turn_score = self._score_four_of_a_kind(array_of_dice)
+        turn_score = self.__score_four_of_a_kind(array_of_dice)
         array_of_dice = self.__remove_fourofakind_dice(array_of_dice)
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
@@ -34,7 +31,7 @@ class Farkle:
             turn_score += 50
         return turn_score
 
-    def _score_four_of_a_kind(self, array_of_dice):
+    def __score_four_of_a_kind(self, array_of_dice):
         score_map = {1: 2000, 2: 400, 3: 600, 4: 800, 5: 1000, 6: 1200}
         for value, score in score_map.items():
             if array_of_dice.count(value) == 4:
