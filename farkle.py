@@ -21,18 +21,10 @@ class Farkle:
         return array_of_dice
 
     def __score_triple_dice(self, array_of_dice, turn_score):
-        if array_of_dice.count(1) == 3:
-            turn_score += 1000
-        if array_of_dice.count(2) == 3:
-            turn_score += 200
-        if array_of_dice.count(3) == 3:
-            turn_score += 300
-        if array_of_dice.count(4) == 3:
-            turn_score += 400
-        if array_of_dice.count(5) == 3:
-            turn_score += 500
-        if array_of_dice.count(6) == 3:
-            turn_score += 600
+        score_map = {1: 1000, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600}
+        for dice_value, score in score_map.items():
+            if array_of_dice.count(dice_value) == 3:
+                turn_score += score
         return turn_score
 
     def __score_single_dice(self, dice, turn_score):
