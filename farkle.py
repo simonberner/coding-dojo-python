@@ -1,7 +1,9 @@
 class Farkle:
 
     def score(self, array_of_dice):
-        turn_score = self.__score_four_of_a_kind(array_of_dice)
+        turn_score = self.__score_five_of_a_kind(array_of_dice)
+        array_of_dice = self.__remove_five_of_a_kind_dice(array_of_dice)
+        turn_score += self.__score_four_of_a_kind(array_of_dice)
         array_of_dice = self.__remove_fourofakind_dice(array_of_dice)
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
@@ -42,5 +44,19 @@ class Farkle:
         four_of_a_kind_to_check = [1, 2, 3, 4, 5, 6]
         for dice_value in four_of_a_kind_to_check:
             if array_of_dice.count(dice_value) == 4:
+                array_of_dice = [x for x in array_of_dice if x != dice_value]
+        return array_of_dice
+
+    def __score_five_of_a_kind(self, array_of_dice):
+        score_map = {1: 4000, 2: 800, 3: 1200, 4: 1600, 5: 2000, 6: 2400}
+        for value, score in score_map.items():
+            if array_of_dice.count(value) == 5:
+                return score
+        return 0
+
+    def __remove_five_of_a_kind_dice(self, array_of_dice):
+        four_of_a_kind_to_check = [1, 2, 3, 4, 5, 6]
+        for dice_value in four_of_a_kind_to_check:
+            if array_of_dice.count(dice_value) == 5:
                 array_of_dice = [x for x in array_of_dice if x != dice_value]
         return array_of_dice
