@@ -71,3 +71,11 @@ def test_five_six():
     farkle = Farkle()
     score = farkle.score(dice)
     assert score == 2450
+
+
+# Test Six-of-a-kind (triple score is multiplied by 8)
+def test_six_six():
+    dice = [6, 6, 6, 6, 6, 6]
+    farkle = Farkle()
+    score = farkle.score(dice)
+    assert score == 4800
