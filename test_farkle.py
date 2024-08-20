@@ -71,3 +71,10 @@ def test_six_six():
     farkle = Farkle()
     score = farkle.score(dice)
     assert score == 4800
+
+
+# Test 'Three Pairs'
+def test_three_pairs():
+    dice = [1, 1, 5, 5, 6, 6]
+    farkle = Farkle()
+    assert farkle.score(dice) == 800
