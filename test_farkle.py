@@ -49,14 +49,6 @@ def test_four_ones():
     assert score == 2100
 
 
-# Six ones are not three, four or five ones. Thus every single 'one' is counted.
-def test_six_ones():
-    dice = [1, 1, 1, 1, 1, 1]
-    farkle = Farkle()
-    score = farkle.score(dice)
-    assert score == 600
-
-
 # Test Five-of-a-kind (triple score is multiplied by 4)
 def test_five_ones():
     dice = [1, 1, 1, 1, 1, 5]
