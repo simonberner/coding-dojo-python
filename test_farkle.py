@@ -67,3 +67,9 @@ def test_six_six():
 def test_three_different_pairs():
     dice = [1, 1, 5, 5, 6, 6]
     assert farkle.score(dice) == 800
+
+
+# Test 'Straight'
+def test_straight():
+    dice = [1, 2, 3, 4, 5, 6]
+    assert farkle.score(dice) == 1200
