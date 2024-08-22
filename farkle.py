@@ -9,6 +9,7 @@ class Farkle:
         array_of_dice = self.__remove_fourofakind_dice(array_of_dice)
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
+        turn_score += self.__score_three_pairs(array_of_dice)
         for dice in array_of_dice:
             turn_score = self.__score_single_dice(dice, turn_score)
         return turn_score
@@ -76,3 +77,15 @@ class Farkle:
             if array_of_dice.count(dice_value) == 6:
                 array_of_dice = [x for x in array_of_dice if x != dice_value]
         return array_of_dice
+
+    def __score_three_pairs(self, array_of_dice):
+        dice_to_check = [1, 2, 3, 4, 5, 6]
+        pairs = 0
+        for dice in dice_to_check:
+            if array_of_dice.count(dice) == 2:
+                pairs += 1
+                # remove the dice from the array
+                array_of_dice[:] = [x for x in array_of_dice if x != dice]
+        if pairs == 3:
+            return 800
+        return 0
