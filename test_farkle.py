@@ -64,6 +64,6 @@ def test_six_six():
 
 
 # Test 'Three Pairs'
-def test_three_pairs():
+def test_three_different_pairs():
     dice = [1, 1, 5, 5, 6, 6]
     assert farkle.score(dice) == 800
