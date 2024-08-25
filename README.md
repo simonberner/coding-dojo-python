@@ -42,3 +42,16 @@ A set of criteria, in priority order, proposed by Kent Beck to judge whether som
 - The code expresses separately each distinct idea or responsibility
 - The code is composed of the minimum number of components (classes, methods, lines) compatible with the first three
   criteria
+
+## Learnings
+
+### Farkle
+
+>`array_of_dice[:] = [x for x in array_of_dice if x != dice]`
+
+- The left side `array_of_dice[:]` is a slice of the entire list and points to all elements of the original list. It
+  does not create a new list, instead it allows assignment to all elements of the original list.
+- The right side `[x for x in array_of_dice if x != dice]` is the new list created by the list comprehension.
+- The assignment `=` replaces the entire content of array_of_dice with the new list.
+- This operation ensures that the original list object `array_of_dice` is updated in place, which is important if other
+  references to this list exist elsewhere.
