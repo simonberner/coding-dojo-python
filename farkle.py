@@ -10,6 +10,7 @@ class Farkle:
         turn_score = self.__score_triple_dice(array_of_dice, turn_score)
         array_of_dice = self.__remove_triple_dice(array_of_dice)
         turn_score += self.__score_three_different_pairs(array_of_dice)
+        turn_score += self.__score_straight(array_of_dice)
         for dice in array_of_dice:
             turn_score = self.__score_single_dice(dice, turn_score)
         return turn_score
@@ -91,4 +92,11 @@ class Farkle:
             # only if there are three different pairs we slice and thus assign the new array to the original array
             array_of_dice[:] = array_of_dice_new
             return 800
+        return 0
+
+    def __score_straight(self, array_of_dice):
+        dice_to_check = [1, 2, 3, 4, 5, 6]
+        if sorted(array_of_dice) == dice_to_check:
+            array_of_dice[:] = []
+            return 1200
         return 0
